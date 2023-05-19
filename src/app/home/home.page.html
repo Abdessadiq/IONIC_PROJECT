@@ -8,7 +8,21 @@
 
 <ion-content [fullscreen]="true">
 
-  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>CIGMA FST SETTAT</ion-card-title>
+    </ion-card-header>
+    <ion-list>
+      <ion-item> Faculter : <strong> {{ contact.name }}</strong></ion-item>
+      <ion-item> Téléphone : <strong> {{ contact.tel }}</strong></ion-item>
+      <ion-item> E-mail : <strong> {{ contact.mail }}</strong></ion-item>
+    </ion-list>
+    <ion-card-content>
+      <ion-img [src]="contact.logo"></ion-img>
+      <ion-img [src]="contact.location"></ion-img>
+    </ion-card-content>
+
+  </ion-card>
 
 
 
