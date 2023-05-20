@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>
       Home
     </ion-title>
@@ -12,28 +15,17 @@
     <ion-card-header>
       <ion-card-title>CIGMA FST SETTAT</ion-card-title>
     </ion-card-header>
-    <ion-list>
-      <ion-item> Faculter : <strong> {{ contact.name }}</strong></ion-item>
-      <ion-item> Téléphone : <strong> {{ contact.tel }}</strong></ion-item>
-      <ion-item> E-mail : <strong> {{ contact.mail }}</strong></ion-item>
-    </ion-list>
+
     <ion-card-content>
       <ion-img [src]="contact.logo"></ion-img>
+      <ion-list>
+        <ion-item> Faculter : <strong> {{ contact.name }}</strong></ion-item>
+        <ion-item> Téléphone : <strong> {{ contact.tel }}</strong></ion-item>
+        <ion-item> E-mail : <strong> {{ contact.mail }}</strong></ion-item>
+      </ion-list>
       <ion-img [src]="contact.location"></ion-img>
     </ion-card-content>
 
   </ion-card>
 
-
-
-<!--  <ion-header collapse="condense">-->
-<!--    <ion-toolbar>-->
-<!--      <ion-title size="large">Blank</ion-title>-->
-<!--    </ion-toolbar>-->
-<!--  </ion-header>-->
-
-<!--  <div id="container">-->
-<!--    <strong>Ready to create an app?</strong>-->
-<!--    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>-->
-<!--  </div>-->
 </ion-content>

@@ -36,4 +36,8 @@ export class AuthenticationService {
     return this.authenticated;
 
   }
+
+  logout() {
+    localStorage.removeItem('myToken')
+  }
 }

@@ -24,7 +24,7 @@ export class AppComponent {
   private login() {
     let result=this.authService.loadToken()
     if (result){
-    this.route.navigateByUrl('/menu')
+    this.route.navigateByUrl('/menu/home')
 
     } else
     this.route.navigateByUrl('/login')
