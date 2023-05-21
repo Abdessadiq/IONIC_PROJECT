@@ -14,9 +14,51 @@
   <ion-card>
     <ion-card-content>
       <ion-item>
-
+        <ion-label> Keyword : </ion-label>
+        <ion-input type="text" [(ngModel)]="keyword" placeholder="Enter Your Text"></ion-input>
+        <ion-button (click)="onLoadImages()" color="success"  size="default">Search</ion-button>
       </ion-item>
     </ion-card-content>
-
   </ion-card>
+  <ion-list *ngIf="dataImages">
+
+      <ion-card *ngFor="let im of dataImages.hits">
+        <ion-card-header>
+          <ion-item>
+            <ion-avatar slot="start">
+              <ion-img [src]="im.previewURL" ></ion-img>
+            </ion-avatar>
+            <ion-label>{{im.user}}</ion-label>
+            <ion-card-title></ion-card-title>
+          </ion-item>
+
+        </ion-card-header>
+        <ion-card-content>
+          <ion-img [src]="im.previewURL" class="dim" >  </ion-img>
+        </ion-card-content>
+        <ion-card-content>
+          <ion-row>
+            <ion-col>
+              <ion-button fill="outline" size="small">
+                <ion-icon name="heart-outline"></ion-icon>
+                <ion-label>{{im.likes}}</ion-label>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button fill="outline" size="small">
+                <ion-icon name="document-text-outline"></ion-icon>
+                <ion-label>{{im.comments}}</ion-label>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button fill="outline" size="small">
+                <ion-icon name="cloud-download-outline"></ion-icon>
+                <ion-label>{{im.downloads}}</ion-label>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+
+  </ion-list>
 </ion-content>
