@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {MeteoService} from "../services/meteo.service";
 
 @Component({
   selector: 'app-meteo',
@@ -10,13 +11,13 @@ export class MeteoPage implements OnInit {
   public city:any;
   public dataMeteo:any;
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private meteaService:MeteoService) { }
 
   ngOnInit() {
   }
 
   onLoadMeteo() {
-    this.httpClient.get("https://api.openweathermap.org/data/2.5/forecast?q="+this.city+"&appid=88f101582b11edeaa502a4f0fe10c1f1")
+    this.meteaService.getMeteoData(this.city)
       .subscribe(data=>
       {
         this.dataMeteo=data;
