@@ -15,14 +15,14 @@
     <ion-card-content>
       <ion-item>
         <ion-label> Keyword : </ion-label>
-        <ion-input type="text" [(ngModel)]="keyword" placeholder="Enter Your Text"></ion-input>
+        <ion-input type="text" [(ngModel)]="keyword" placeholder="Enter Your Text.."></ion-input>
         <ion-button (click)="onLoadImages()" color="success"  size="default">Search</ion-button>
       </ion-item>
     </ion-card-content>
   </ion-card>
   <ion-list *ngIf="dataImages">
 
-      <ion-card *ngFor="let im of dataImages.hits">
+      <ion-card *ngFor="let im of dataImages">
         <ion-card-header>
           <ion-item>
             <ion-avatar slot="start">
@@ -59,6 +59,11 @@
           </ion-row>
         </ion-card-content>
       </ion-card>
-
   </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>

@@ -15,8 +15,8 @@
     <ion-card-content>
       <ion-item>
         <ion-label> City : </ion-label>
-        <ion-input type="text" [(ngModel)]="city"></ion-input>
-        <ion-button (click)="onLoadMeteo()" color="success" shape="round" size="default">Search</ion-button>
+        <ion-input type="text" [(ngModel)]="city" placeholder="Enter Your Text.."></ion-input>
+        <ion-button (click)="onLoadMeteo()" color="success"  size="default">Search</ion-button>
       </ion-item>
     </ion-card-content>
   </ion-card>
@@ -40,7 +40,7 @@
       <ion-list>
         <ion-item *ngFor="let m of dataMeteo.list">
           <ion-avatar slot="start">
-            <ion-img src="assets/images/{{m.weather[0].main}}.png"></ion-img>
+            <ion-img src="assets/images/{{m.weather[0].main}}.svg"></ion-img>
           </ion-avatar>
           <ion-list>
             <ion-item>
