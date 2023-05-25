@@ -17,13 +17,7 @@ export class GalleryPage implements OnInit {
   ngOnInit() {
   }
 
-  onLoadImages() {
-    this.dataImages=[];
-    this.currenPage=1;
-    this.totalPages=0;
-    this.doSearch();
 
-  }
   private doSearch() {
     this.httpClient.get<PixabayResponse>("https://pixabay.com/api/?key=36624956-e2a9b46e9b0921cb5a52d3f39&q="
       +this.keyword+"&per_page="+this.size+"&page="+this.currenPage)
@@ -36,6 +30,12 @@ export class GalleryPage implements OnInit {
         err => {
           console.log(err);
         })
+  }
+  onLoadImages() {
+    this.dataImages=[];
+    this.currenPage=1;
+    this.totalPages=0;
+    this.doSearch();
 
   }
 
@@ -46,15 +46,11 @@ export class GalleryPage implements OnInit {
       this.doSearch();
       event.target.complete();
     }
-   // if (this.currenPage>=this.totalPages)
-     // event.target.disabled=true;
-
-
+   if (this.currenPage>=this.totalPages)
+     event.target.disabled=true;
   }
 
-
 }
-
 
 interface PixabayResponse {
   hits: any[]; // Remplacez 'any' par le type approprié pour les objets 'pic'

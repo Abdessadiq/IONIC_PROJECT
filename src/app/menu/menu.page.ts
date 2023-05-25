@@ -13,7 +13,7 @@ export class MenuPage implements OnInit {
   constructor(private router:Router, private authServices: AuthenticationService) { }
   public menus= [
     {title:"Home", url:"/menu/home", icon:"home-outline"},
-    {title:"Meteo", url:"/menu/meteo", icon:"thermometer-outline"},
+    {title:"Meteo", url:"/menu/meteo", icon:"cloudy-night-outline"},
     {title:"Location", url:"/menu/location", icon:"locate-outline"},
     {title:"Gallery", url:"/menu/gallery", icon:"images-outline"},
     {title:"Logout", url:"logout", icon:"log-out-outline"}
