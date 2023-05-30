@@ -8,15 +8,16 @@ import {Place} from "../model/Place.model";
   styleUrls: ['./locations.page.scss'],
 })
 export class LocationsPage implements OnInit {
-  public locations:Array<Place>=[];
+  public locations:any;
   constructor(private locationServices: LocationsService) { }
 
   ngOnInit() {
-    this.getLocation();
+   this.locationServices.getLocations().then(data=>{
+     this.locations = data;
+   })
 
   }
   getLocation(){
-    this.locations=this.locationServices.getLocations();
   }
 
 }
