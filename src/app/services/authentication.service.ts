@@ -26,7 +26,7 @@ export class AuthenticationService {
   }
   public  loadToken(){
     this.token = localStorage.getItem("myToken");
-    if (this.token=='thisIsToken')
+    if (this.token=="thisIsToken")
     {
       this.authenticated=true;
     }

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
 import {IonicStorageModule} from "@ionic/storage-angular";
+import {Geolocation} from "@awesome-cordova-plugins/geolocation/ngx";
 
 
 
@@ -14,11 +15,13 @@ import {IonicStorageModule} from "@ionic/storage-angular";
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,  IonicStorageModule.forRoot({
-    name:'myLocations',
-    driverOrder:['indexeddb','sqlite','websql']
+    //name:'myLocations',
+    //driverOrder:['indexeddb','sqlite','websql']
   })
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    Geolocation,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

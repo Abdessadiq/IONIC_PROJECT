@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LocationsService} from "../services/locations.service";
 import {Place} from "../model/Place.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-locations',
@@ -9,15 +10,25 @@ import {Place} from "../model/Place.model";
 })
 export class LocationsPage implements OnInit {
   public locations:any;
-  constructor(private locationServices: LocationsService) { }
+
+  constructor(private locationServices: LocationsService, private router:Router) {
+
+  }
 
   ngOnInit() {
-   this.locationServices.getLocations().then(data=>{
-     this.locations = data;
-   })
 
+
+  }
+  public ionViewWillEnter(){
+    this.locationServices.loadLocations().then(data=>{
+      this.locations = data;
+    })
   }
   getLocation(){
   }
 
+  onNewLocation() {
+    this.router.navigateByUrl('menu/new-location');
+
+  }
 }

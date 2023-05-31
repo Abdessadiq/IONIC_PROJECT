@@ -8,14 +8,21 @@ import {Storage} from "@ionic/storage-angular";
 export class LocationsService {
 
   public  locations:Array<Place>=[];
+
+
+  // Injectez le plugin Ionic Storage dans votre composant ou service
   constructor(private storage: Storage) {
-    this.locations.push({title:"A"});
-    this.locations.push({title:"B"});
-    this.locations.push({title:"C"});
+    // Appelez la méthode initStorage() pour initialiser la base de données
+     this.initStorage();
+
   }
-  public getLocations(){
+
+  private async initStorage() {
+    await this.storage.create();
+  }
+  public loadLocations(){
     return this.storage.get("locations").then(result=>{
-      this.locations = result!=null?result:[];
+      this.locations = result != null ? result : [];
       return this.locations.slice();
     })
   }

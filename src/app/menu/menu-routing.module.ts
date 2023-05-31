@@ -21,7 +21,10 @@ const routes: Routes = [
       {
         path:'gallery',loadChildren: () => import('../gallery/gallery.module').then( m =>m.GalleryPageModule)
       },
-
+      {
+        path: 'new-location',
+        loadChildren: () => import('../new-location/new-location.module').then( m => m.NewLocationPageModule)
+      }
 
 
     ]
