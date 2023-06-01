@@ -30,4 +30,10 @@ export class LocationsService {
     this.locations.push(place);
     this.storage.set("locations", this.locations)
   }
+
+
+
+  public updateLocation(locations:any) {
+    this.storage.set("locations", locations);
+  }
 }
