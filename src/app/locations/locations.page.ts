@@ -69,4 +69,9 @@ export class LocationsPage implements OnInit {
     this.locations.splice(index, 1);
     this.locationServices.updateLocation(this.locations);
   }
+
+  onDetailLocation(p: Place) {
+    this.locationServices.currentLocation=p;
+    this.router.navigateByUrl('menu/location-details');
+  }
 }

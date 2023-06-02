@@ -8,7 +8,7 @@ import {Storage} from "@ionic/storage-angular";
 export class LocationsService {
 
   public  locations:Array<Place>=[];
-
+  public currentLocation: any;
 
   // Injectez le plugin Ionic Storage dans votre composant ou service
   constructor(private storage: Storage) {
